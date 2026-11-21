@@ -5,108 +5,300 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mrs. Prajakta Khade | Creative Head &amp; Interior Director | K Arch Architects</title>
   
-  <meta name="description" content="Profile of Mrs. Prajakta Khade, Creative Head at K Arch Architects Mumbai. Leader in luxury interior architecture, spatial psychology, and entrance lobby design.">
+  <meta name="description" content="Official executive profile of Mrs. Prajakta Khade, Creative Head &amp; Interior Director at K Arch Architects Mumbai. Leader in luxury interior architecture, spatial psychology, and entrance lobby design.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/style.css">
   
   <style>
-    .profile-hero {
-      padding: 130px 0 80px;
-      background: #fbfbfb;
-      border-bottom: 1px solid #e9ecef;
+    :root {
+      --bg-profile: #f8f9fc;
     }
-    .profile-grid {
-      display: grid;
-      grid-template-columns: 420px 1fr;
-      gap: 60px;
-      align-items: start;
+    body {
+      background: var(--bg-profile);
+      color: #1a1e28;
     }
-    .profile-photo-card {
-      background: #fff;
-      border: 1px solid #e9ecef;
-      border-radius: 6px;
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      position: sticky;
-      top: 110px;
+    .profile-top-banner {
+      background: #12141a;
+      color: #ffffff;
+      padding: 14px 0;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .profile-photo-card img {
-      width: 100%;
-      height: 480px;
-      object-fit: cover;
-      object-position: center top;
-    }
-    .profile-quick-stats {
-      padding: 24px;
-      background: #fff;
-    }
-    .stat-row {
+    .profile-top-banner .container {
       display: flex;
       justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid #f0f0f0;
+      align-items: center;
+    }
+    .back-btn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      transition: all 0.25s ease;
+    }
+    .back-btn-pill:hover {
+      background: var(--accent-color);
+      color: #ffffff;
+      transform: translateX(-3px);
+    }
+    .profile-main-section {
+      padding: 60px 0 100px;
+    }
+    .profile-grid-layout {
+      display: grid;
+      grid-template-columns: 440px 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+    .profile-sticky-card {
+      background: #ffffff;
+      border: 1px solid #e5e8ee;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 100px;
+    }
+    .profile-photo-container {
+      position: relative;
+      height: 500px;
+      background: #eaedf2;
+      overflow: hidden;
+    }
+    .profile-photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+    }
+    .profile-badge-verified {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: rgba(18, 20, 26, 0.88);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .profile-sidebar-body {
+      padding: 28px;
+      background: #ffffff;
+    }
+    .profile-stat-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f2f6;
       font-size: 0.92rem;
     }
-    .stat-row:last-child {
+    .profile-stat-item:last-child {
       border-bottom: none;
     }
-    .stat-row span:first-child {
-      color: var(--text-muted);
+    .profile-stat-label {
+      color: #6c757d;
+      font-weight: 500;
     }
-    .stat-row span:last-child {
-      font-weight: 600;
-      color: var(--text-primary);
+    .profile-stat-val {
+      font-weight: 700;
+      color: #12141a;
+      text-align: right;
     }
-    .profile-bio-content h1 {
+    .profile-content-col {
+      background: #ffffff;
+      border: 1px solid #e5e8ee;
+      border-radius: 12px;
+      padding: 45px 50px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
+    }
+    .profile-header-title {
       font-size: 2.8rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: #12141a;
       margin-bottom: 8px;
+      line-height: 1.15;
     }
-    .profile-role-title {
-      font-size: 1.25rem;
+    .profile-sub-role {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
       color: var(--accent-color);
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       margin-bottom: 24px;
     }
-    .profile-text-block p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--text-secondary);
-      margin-bottom: 20px;
+    .metrics-bar-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 30px 0 35px;
+      background: #fbfcfe;
+      border: 1px solid #e9edf2;
+      border-radius: 8px;
+      padding: 20px 16px;
     }
-    .credential-card {
-      background: #fff;
-      border: 1px solid #e9ecef;
+    .metric-box {
+      text-align: center;
+      border-right: 1px solid #e9edf2;
+      padding: 0 8px;
+    }
+    .metric-box:last-child {
+      border-right: none;
+    }
+    .metric-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent-color);
+      font-family: var(--font-serif);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .metric-lbl {
+      font-size: 0.78rem;
+      color: #6c757d;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .quote-box {
+      background: linear-gradient(135deg, rgba(230, 120, 23, 0.05) 0%, rgba(230, 120, 23, 0.01) 100%);
       border-left: 4px solid var(--accent-color);
       border-radius: 4px;
-      padding: 20px 24px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-sm);
+      padding: 22px 26px;
+      margin-bottom: 30px;
     }
-    .landmark-pills {
+    .quote-box p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-style: italic;
+      color: #2c3240;
+      margin: 0;
+    }
+    .bio-text-block p {
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: #495057;
+      margin-bottom: 20px;
+    }
+    .spec-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin: 25px 0 35px;
+    }
+    .spec-item {
+      background: #f8fafd;
+      border: 1px solid #e4e8f0;
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .spec-item h4 {
+      font-size: 1rem;
+      color: #12141a;
+      margin-bottom: 8px;
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
+      align-items: center;
+      gap: 8px;
     }
-    .landmark-pill {
-      background: #f4f5f8;
-      padding: 6px 16px;
-      border-radius: 30px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      border: 1px solid #e2e5eb;
+    .spec-item p {
+      font-size: 0.9rem;
+      color: #6c757d;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .signature-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .sig-project-card {
+      border: 1px solid #e5e8ee;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .sig-project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .sig-project-info {
+      padding: 16px;
+    }
+    .sig-project-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .sig-project-meta {
+      font-size: 0.82rem;
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+    @media (max-width: 991px) {
+      .profile-grid-layout {
+        grid-template-columns: 1fr;
+      }
+      .profile-sticky-card {
+        position: static;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .profile-content-col {
+        padding: 30px 24px;
+      }
+      .metrics-bar-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .metric-box:nth-child(2) {
+        border-right: none;
+      }
+      .spec-card-grid, .signature-projects-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header" style="background: #fff;">
+  <!-- TOP BREADCRUMB BAR -->
+  <div class="profile-top-banner">
+    <div class="container">
+      <a href="index.html#team" class="back-btn-pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <span>Back to K Arch Architects</span>
+      </a>
+      <div style="font-size: 0.82rem; color: #adb5bd; letter-spacing: 0.05em;">
+        CREATIVE LEADERSHIP &bull; INTERIOR ARCHITECTURE &bull; MUMBAI
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE HEADER -->
+  <header class="site-header" style="position: sticky; top: 0; background: #ffffff; border-bottom: 1px solid #eaeaea;">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="K Arch Architects Home">
         <img src="assets/img/branding/logo.png" alt="K Arch Architects Logo" style="height: 44px;">
@@ -115,115 +307,168 @@
       <nav>
         <ul class="nav-menu">
           <li><a href="index.html#home" class="nav-link">Home</a></li>
-          <li><a href="index.html#about" class="nav-link">About us</a></li>
+          <li><a href="index.html#about" class="nav-link">About Us</a></li>
           <li><a href="index.html#services" class="nav-link">Services</a></li>
-          <li><a href="index.html#team" class="nav-link active">Team</a></li>
+          <li><a href="index.html#team" class="nav-link active">Core Leadership</a></li>
           <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
-          <li><a href="index.html#partners" class="nav-link">Work Partners</a></li>
+          <li><a href="index.html#partners" class="nav-link">Clients &amp; Partners</a></li>
           <li><a href="index.html#contact" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <a href="index.html#contact" class="btn-primary">
-          <span>Inquire With Studio</span>
+        <a href="index.html#contact" class="btn-primary" style="padding: 10px 22px; font-size: 0.9rem;">
+          <span>Schedule Consultation</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- PROFILE HERO SECTION -->
-  <main class="profile-hero">
+  <!-- MAIN PROFILE -->
+  <main class="profile-main-section">
     <div class="container">
-      <div class="profile-grid">
-        <!-- Photo Card -->
-        <div class="profile-photo-card">
-          <img src="assets/img/showcase/prajkata.jpg" alt="Mrs. Prajakta Khade" onerror="this.src='https://karcharchitects.com/wp-content/uploads/2021/04/prajkata.jpg'">
-          <div class="profile-quick-stats">
-            <div class="stat-row">
-              <span>Title</span>
-              <span>Creative Head &amp; Director</span>
+      <div class="profile-grid-layout">
+        
+        <!-- LEFT: STICKY PHOTO & STATS -->
+        <aside class="profile-sticky-card">
+          <div class="profile-photo-container">
+            <span class="profile-badge-verified">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Creative Head
+            </span>
+            <img src="assets/img/showcase/prajkata.jpg" alt="Mrs. Prajakta Khade Creative Head" onerror="this.src='https://karcharchitects.com/wp-content/uploads/2021/04/prajkata.jpg'">
+          </div>
+
+          <div class="profile-sidebar-body">
+            <div class="profile-stat-item">
+              <span class="profile-stat-label">Position</span>
+              <span class="profile-stat-val">Creative Head &amp; Interior Director</span>
             </div>
-            <div class="stat-row">
-              <span>Studio Practice</span>
-              <span>K Arch Architects</span>
+            <div class="profile-stat-item">
+              <span class="profile-stat-label">Focus Area</span>
+              <span class="profile-stat-val">Luxury Interior Architecture</span>
             </div>
-            <div class="stat-row">
-              <span>Practice HQ</span>
-              <span>Mumbai, Maharashtra</span>
+            <div class="profile-stat-item">
+              <span class="profile-stat-label">Philosophy</span>
+              <span class="profile-stat-val">Biophilic &amp; Sensorial Design</span>
             </div>
-            <div class="stat-row">
-              <span>Domain Specialty</span>
-              <span>Luxury Interiors &amp; Spatial Aesthetics</span>
+            <div class="profile-stat-item">
+              <span class="profile-stat-label">Jurisdiction</span>
+              <span class="profile-stat-val">MMR &amp; Luxury Residences</span>
             </div>
-            <div class="stat-row">
-              <span>Contact Direct</span>
-              <span><a href="mailto:enquiry@karcharchitects.com" style="color: var(--accent-color);">enquiry@karcharchitects.com</a></span>
+            <div class="profile-stat-item">
+              <span class="profile-stat-label">Direct Studio Email</span>
+              <span class="profile-stat-val">
+                <a href="mailto:enquiry@karcharchitects.com" style="color: var(--accent-color); text-decoration: underline;">enquiry@karcharchitects.com</a>
+              </span>
+            </div>
+
+            <div style="margin-top: 24px;">
+              <a href="index.html#contact" class="btn-primary" style="width: 100%; justify-content: center; padding: 13px;">
+                <span>Book Interior Consultation</span>
+              </a>
             </div>
           </div>
-        </div>
+        </aside>
 
-        <!-- Biography & Details -->
-        <div class="profile-bio-content">
+        <!-- RIGHT: COMPREHENSIVE BIOGRAPHY -->
+        <article class="profile-content-col">
           <span class="section-label">Executive Leadership Profile</span>
-          <h1>Mrs. Prajakta Khade</h1>
-          <div class="profile-role-title">Creative Head &amp; Interior Director &bull; K Arch Architects</div>
+          <h1 class="profile-header-title">Mrs. Prajakta Khade</h1>
+          <div class="profile-sub-role">Creative Head &amp; Interior Director &bull; K Arch Architects</div>
 
-          <div class="credential-card">
-            <h4 style="margin-bottom: 6px; font-size: 1.15rem;">Creative Vision &amp; Spatial Philosophy</h4>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin: 0;">
-              "Architecture reaches its highest expression when the interior spaces breathe life into human experience. We design environments that balance sensory luxury, biophilic materials, and functional serenity."
+          <!-- KEY METRICS BAR -->
+          <div class="metrics-bar-grid">
+            <div class="metric-box">
+              <div class="metric-num">12+</div>
+              <div class="metric-lbl">Years Design</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-num">60+</div>
+              <div class="metric-lbl">Suites &amp; Lobbies</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-num">100%</div>
+              <div class="metric-lbl">Bespoke Curation</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-num">15+</div>
+              <div class="metric-lbl">Luxury Towers</div>
+            </div>
+          </div>
+
+          <!-- PHILOSOPHY QUOTE -->
+          <div class="quote-box">
+            <p>
+              "True luxury is felt before it is seen. By orchestrating natural light, biophilic materials, acoustic serenity, and bespoke textural palettes, we transform structural volumes into soulful sanctuaries that enrich daily life."
             </p>
           </div>
 
-          <div class="profile-text-block">
-            <h3 style="font-size: 1.5rem; margin-bottom: 14px;">Professional Background</h3>
+          <!-- BIO BODY -->
+          <div class="bio-text-block">
+            <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: #12141a;">Design Philosophy &amp; Creative Leadership</h3>
             <p>
-              As the Creative Head at <strong>K Arch Architects</strong>, Mrs. Prajakta Khade leads the firm's creative identity, interior architecture, and experiential design practices. Her human-centric approach transforms cold structural volumes into warm, soulful sanctuaries.
+              Mrs. Prajakta Khade serves as the <strong>Creative Head &amp; Interior Director</strong> at K Arch Architects, steering the studio's aesthetic identity, sensorial spatial planning, and high-end residential interior architecture.
             </p>
             <p>
-              She directs the interior aesthetic schemes across luxury high-rise towers, private penthouses, corporate headquarters, and high-end residential clubhouses. Her work seamlessly integrates contemporary materials, bespoke joinery, intelligent illumination, and acoustic balance.
+              Her holistic vision unites architecture and interiority, ensuring that a building's external geometry transitions effortlessly into warm, inviting, and functionally flawless interior experiences. From monumental double-height entrance lobbies for signature residential skyscrapers to intimate bespoke penthouses, Prajakta's designs are defined by impeccable craftsmanship, subtle lighting nuances, and tailored material curation.
             </p>
 
-            <h3 style="font-size: 1.5rem; margin-top: 35px; margin-bottom: 14px;">Key Areas of Expertise</h3>
-            <div class="credential-card">
-              <ul style="padding-left: 20px; color: var(--text-secondary); line-height: 1.8;">
-                <li><strong>Grand Double-Height Entrance Lobbies:</strong> Creating magnificent arrival experiences with dramatic marble cladding, kinetic chandeliers, and concierge spatial flows.</li>
-                <li><strong>Clubhouse &amp; Podium Amenities:</strong> Designing world-class resident amenities including infinity pools, sky lounges, wellness spas, and private theater suites.</li>
-                <li><strong>3D Spatial Ergonomics:</strong> Supervising 3D floor cutaways and isometric spatial zoning ensuring zero wasted space and optimal natural daylight.</li>
-                <li><strong>Biophilic Materiality:</strong> Sustainable timbers, natural stone, indoor green atriums, and low-VOC finishes for healthier indoor living.</li>
-              </ul>
+            <h3 style="font-size: 1.5rem; margin: 35px 0 16px; color: #12141a;">Areas of Creative Specialization</h3>
+            <div class="spec-card-grid">
+              <div class="spec-item">
+                <h4>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  Grand Entrance Lobbies
+                </h4>
+                <p>Monumental arrival experiences, custom acoustic paneling, water features, marble feature walls, and statement lighting design.</p>
+              </div>
+
+              <div class="spec-item">
+                <h4>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                  Biophilic Interior Styling
+                </h4>
+                <p>Incorporating natural greenery, organic daylight flows, non-toxic textures, and sustainable material palettes.</p>
+              </div>
+
+              <div class="spec-item">
+                <h4>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                  3D Spatial Visualization
+                </h4>
+                <p>Photorealistic 3D interior renders, material boards, VR walk-throughs, and lighting simulations for developer presentations.</p>
+              </div>
+
+              <div class="spec-item">
+                <h4>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  Bespoke Penthouse Suites
+                </h4>
+                <p>Tailor-made luxury finishes, private terrace lounges, smart home automation integration, and artisanal millwork.</p>
+              </div>
             </div>
 
-            <h3 style="font-size: 1.5rem; margin-top: 35px; margin-bottom: 14px;">Signature Interior Spaces Directed</h3>
-            <p>Notable interior and spatial environments created under Mrs. Prajakta's aesthetic leadership:</p>
-            <div class="landmark-pills">
-              <span class="landmark-pill">🛋️ Northern Hills Podium Infinity Pool &amp; Lobby</span>
-              <span class="landmark-pill">🛋️ Northern Heights Grand Reception — Dahisar</span>
-              <span class="landmark-pill">🛋️ Callista Luxury Clubhouse — Thane</span>
-              <span class="landmark-pill">🛋️ Royal Samarpan Penthouse Living Suite</span>
-              <span class="landmark-pill">🛋️ Grandness Double-Height Atrium — Dahisar</span>
-              <span class="landmark-pill">🛋️ Synergy Corporate Head Office — Malad</span>
-            </div>
-
+            <!-- ACTIONS -->
             <div style="margin-top: 45px; display: flex; gap: 16px; flex-wrap: wrap;">
-              <a href="index.html#contact" class="btn-primary" style="padding: 14px 28px;">
-                <span>Discuss Interior Architecture Project</span>
+              <a href="index.html#contact" class="btn-primary" style="padding: 14px 30px;">
+                <span>Schedule Interior Consultation</span>
               </a>
-              <a href="index.html#portfolio" class="btn-outline" style="padding: 14px 28px;">
-                <span>Explore Interior Portfolios &rarr;</span>
+              <a href="index.html#portfolio" class="btn-outline" style="padding: 14px 30px;">
+                <span>Explore Interior Portfolio &rarr;</span>
               </a>
             </div>
           </div>
-        </div>
+        </article>
+
       </div>
     </div>
   </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container" style="text-align: center; padding-top: 20px;">
-      <p>&copy; 2026 K Arch Architects. All rights reserved. Creative Head Mrs. Prajakta Khade.</p>
+    <div class="container" style="text-align: center; padding: 24px 0;">
+      <p>&copy; 2026 K Arch Architects. All rights reserved. Creative Head: Mrs. Prajakta Khade.</p>
     </div>
   </footer>
 

@@ -5,108 +5,300 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arch. Pravin Eknath Khade | Founder &amp; Principal Architect | K Arch Architects</title>
   
-  <meta name="description" content="Profile of Arch. Pravin Eknath Khade, Founder &amp; Principal Architect at K Arch Architects Mumbai. Leader in high-rise skyscrapers, township planning, and society redevelopment.">
+  <meta name="description" content="Official executive profile of Arch. Pravin Eknath Khade, Founder &amp; Principal Architect at K Arch Architects Mumbai. Leader in high-rise skyscrapers, township planning, and society redevelopment.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/style.css">
   
   <style>
-    .profile-hero {
-      padding: 130px 0 80px;
-      background: #fbfbfb;
-      border-bottom: 1px solid #e9ecef;
+    :root {
+      --bg-profile: #f8f9fc;
     }
-    .profile-grid {
-      display: grid;
-      grid-template-columns: 420px 1fr;
-      gap: 60px;
-      align-items: start;
+    body {
+      background: var(--bg-profile);
+      color: #1a1e28;
     }
-    .profile-photo-card {
-      background: #fff;
-      border: 1px solid #e9ecef;
-      border-radius: 6px;
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      position: sticky;
-      top: 110px;
+    .profile-top-banner {
+      background: #12141a;
+      color: #ffffff;
+      padding: 14px 0;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .profile-photo-card img {
-      width: 100%;
-      height: 480px;
-      object-fit: cover;
-      object-position: center top;
-    }
-    .profile-quick-stats {
-      padding: 24px;
-      background: #fff;
-    }
-    .stat-row {
+    .profile-top-banner .container {
       display: flex;
       justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid #f0f0f0;
+      align-items: center;
+    }
+    .back-btn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      transition: all 0.25s ease;
+    }
+    .back-btn-pill:hover {
+      background: var(--accent-color);
+      color: #ffffff;
+      transform: translateX(-3px);
+    }
+    .profile-main-section {
+      padding: 60px 0 100px;
+    }
+    .profile-grid-layout {
+      display: grid;
+      grid-template-columns: 440px 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+    .profile-sticky-card {
+      background: #ffffff;
+      border: 1px solid #e5e8ee;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 100px;
+    }
+    .profile-photo-container {
+      position: relative;
+      height: 500px;
+      background: #eaedf2;
+      overflow: hidden;
+    }
+    .profile-photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+    }
+    .profile-badge-verified {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: rgba(18, 20, 26, 0.88);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .profile-sidebar-body {
+      padding: 28px;
+      background: #ffffff;
+    }
+    .profile-stat-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f2f6;
       font-size: 0.92rem;
     }
-    .stat-row:last-child {
+    .profile-stat-item:last-child {
       border-bottom: none;
     }
-    .stat-row span:first-child {
-      color: var(--text-muted);
+    .profile-stat-label {
+      color: #6c757d;
+      font-weight: 500;
     }
-    .stat-row span:last-child {
-      font-weight: 600;
-      color: var(--text-primary);
+    .profile-stat-val {
+      font-weight: 700;
+      color: #12141a;
+      text-align: right;
     }
-    .profile-bio-content h1 {
+    .profile-content-col {
+      background: #ffffff;
+      border: 1px solid #e5e8ee;
+      border-radius: 12px;
+      padding: 45px 50px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
+    }
+    .profile-header-title {
       font-size: 2.8rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: #12141a;
       margin-bottom: 8px;
+      line-height: 1.15;
     }
-    .profile-role-title {
-      font-size: 1.25rem;
+    .profile-sub-role {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
       color: var(--accent-color);
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       margin-bottom: 24px;
     }
-    .profile-text-block p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--text-secondary);
-      margin-bottom: 20px;
+    .metrics-bar-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 30px 0 35px;
+      background: #fbfcfe;
+      border: 1px solid #e9edf2;
+      border-radius: 8px;
+      padding: 20px 16px;
     }
-    .credential-card {
-      background: #fff;
-      border: 1px solid #e9ecef;
+    .metric-box {
+      text-align: center;
+      border-right: 1px solid #e9edf2;
+      padding: 0 8px;
+    }
+    .metric-box:last-child {
+      border-right: none;
+    }
+    .metric-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent-color);
+      font-family: var(--font-serif);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .metric-lbl {
+      font-size: 0.78rem;
+      color: #6c757d;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .quote-box {
+      background: linear-gradient(135deg, rgba(230, 120, 23, 0.05) 0%, rgba(230, 120, 23, 0.01) 100%);
       border-left: 4px solid var(--accent-color);
       border-radius: 4px;
-      padding: 20px 24px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-sm);
+      padding: 22px 26px;
+      margin-bottom: 30px;
     }
-    .landmark-pills {
+    .quote-box p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-style: italic;
+      color: #2c3240;
+      margin: 0;
+    }
+    .bio-text-block p {
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: #495057;
+      margin-bottom: 20px;
+    }
+    .spec-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin: 25px 0 35px;
+    }
+    .spec-item {
+      background: #f8fafd;
+      border: 1px solid #e4e8f0;
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .spec-item h4 {
+      font-size: 1rem;
+      color: #12141a;
+      margin-bottom: 8px;
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
+      align-items: center;
+      gap: 8px;
     }
-    .landmark-pill {
-      background: #f4f5f8;
-      padding: 6px 16px;
-      border-radius: 30px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      border: 1px solid #e2e5eb;
+    .spec-item p {
+      font-size: 0.9rem;
+      color: #6c757d;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .signature-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .sig-project-card {
+      border: 1px solid #e5e8ee;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .sig-project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .sig-project-info {
+      padding: 16px;
+    }
+    .sig-project-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .sig-project-meta {
+      font-size: 0.82rem;
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+    @media (max-width: 991px) {
+      .profile-grid-layout {
+        grid-template-columns: 1fr;
+      }
+      .profile-sticky-card {
+        position: static;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .profile-content-col {
+        padding: 30px 24px;
+      }
+      .metrics-bar-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .metric-box:nth-child(2) {
+        border-right: none;
+      }
+      .spec-card-grid, .signature-projects-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header" style="background: #fff;">
+  <!-- TOP BREADCRUMB BAR -->
+  <div class="profile-top-banner">
+    <div class="container">
+      <a href="index.html#team" class="back-btn-pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <span>Back to K Arch Architects</span>
+      </a>
+      <div style="font-size: 0.82rem; color: #adb5bd; letter-spacing: 0.05em;">
+        COUNCIL OF ARCHITECTURE REGISTERED &bull; MUMBAI, INDIA
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE HEADER -->
+  <header class="site-header" style="position: sticky; top: 0; background: #ffffff; border-bottom: 1px solid #eaeaea;">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="K Arch Architects Home">
         <img src="assets/img/branding/logo.png" alt="K Arch Architects Logo" style="height: 44px;">
@@ -115,117 +307,189 @@
       <nav>
         <ul class="nav-menu">
           <li><a href="index.html#home" class="nav-link">Home</a></li>
-          <li><a href="index.html#about" class="nav-link">About us</a></li>
+          <li><a href="index.html#about" class="nav-link">About Us</a></li>
           <li><a href="index.html#services" class="nav-link">Services</a></li>
-          <li><a href="index.html#team" class="nav-link active">Team</a></li>
+          <li><a href="index.html#team" class="nav-link active">Core Leadership</a></li>
           <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
-          <li><a href="index.html#partners" class="nav-link">Work Partners</a></li>
+          <li><a href="index.html#partners" class="nav-link">Clients &amp; Partners</a></li>
           <li><a href="index.html#contact" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <a href="index.html#contact" class="btn-primary">
-          <span>Inquire With Studio</span>
+        <a href="index.html#contact" class="btn-primary" style="padding: 10px 22px; font-size: 0.9rem;">
+          <span>Schedule Consultation</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- PROFILE HERO SECTION -->
-  <main class="profile-hero">
+  <!-- MAIN PROFILE -->
+  <main class="profile-main-section">
     <div class="container">
-      <div class="profile-grid">
-        <!-- Photo Card -->
-        <div class="profile-photo-card">
-          <img src="assets/img/showcase/archpravin-kade1400.jpg" alt="Arch. Pravin Eknath Khade" onerror="this.src='https://karcharchitects.com/wp-content/uploads/2021/04/archpravin-kade1400.jpg'">
-          <div class="profile-quick-stats">
-            <div class="stat-row">
-              <span>Title</span>
-              <span>Founder &amp; Principal Architect</span>
+      <div class="profile-grid-layout">
+        
+        <!-- LEFT: STICKY PHOTO & STATS -->
+        <aside class="profile-sticky-card">
+          <div class="profile-photo-container">
+            <span class="profile-badge-verified">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Principal Architect
+            </span>
+            <img src="assets/img/showcase/archpravin-kade1400.jpg" alt="Arch. Pravin Eknath Khade" onerror="this.src='https://karcharchitects.com/wp-content/uploads/2021/04/archpravin-kade1400.jpg'">
+          </div>
+
+          <div class="profile-sidebar-body">
+            <div class="profile-stat-item">
+              <span class="profile-stat-label">Position</span>
+              <span class="profile-stat-val">Founder &amp; Principal Architect</span>
             </div>
-            <div class="stat-row">
-              <span>Established Firm</span>
-              <span>2012 (12+ Years)</span>
+            <div class="profile-stat-item">
+              <span class="profile-stat-label">Founded Firm</span>
+              <span class="profile-stat-val">2012 (14+ Years Practice)</span>
             </div>
-            <div class="stat-row">
-              <span>Practice HQ</span>
-              <span>Mumbai, Maharashtra</span>
+            <div class="profile-stat-item">
+              <span class="profile-stat-label">Statutory Accreditation</span>
+              <span class="profile-stat-val">Council of Architecture (CoA)</span>
             </div>
-            <div class="stat-row">
-              <span>Regulatory Standing</span>
-              <span>Council of Architecture (CoA)</span>
+            <div class="profile-stat-item">
+              <span class="profile-stat-label">Jurisdiction</span>
+              <span class="profile-stat-val">MMR, Maharashtra, Pan-India</span>
             </div>
-            <div class="stat-row">
-              <span>Contact Direct</span>
-              <span><a href="mailto:enquiry@karcharchitects.com" style="color: var(--accent-color);">enquiry@karcharchitects.com</a></span>
+            <div class="profile-stat-item">
+              <span class="profile-stat-label">Direct Studio Email</span>
+              <span class="profile-stat-val">
+                <a href="mailto:enquiry@karcharchitects.com" style="color: var(--accent-color); text-decoration: underline;">enquiry@karcharchitects.com</a>
+              </span>
+            </div>
+
+            <div style="margin-top: 24px;">
+              <a href="index.html#contact" class="btn-primary" style="width: 100%; justify-content: center; padding: 13px;">
+                <span>Book Direct Meeting</span>
+              </a>
             </div>
           </div>
-        </div>
+        </aside>
 
-        <!-- Biography & Details -->
-        <div class="profile-bio-content">
+        <!-- RIGHT: COMPREHENSIVE BIOGRAPHY -->
+        <article class="profile-content-col">
           <span class="section-label">Executive Leadership Profile</span>
-          <h1>Arch. Pravin Eknath Khade</h1>
-          <div class="profile-role-title">Founder &amp; Principal Architect &bull; K Arch Architects</div>
+          <h1 class="profile-header-title">Arch. Pravin Eknath Khade</h1>
+          <div class="profile-sub-role">Founder &amp; Principal Architect &bull; K Arch Architects</div>
 
-          <div class="credential-card">
-            <h4 style="margin-bottom: 6px; font-size: 1.15rem;">Architectural Philosophy &amp; Vision</h4>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin: 0;">
-              "We do not opt for standardized architecture with pre-conceived notions. Instead, we develop design solutions that integrate form and function, contemplating architecture and landscape best suited to each project while surpassing conventional construction constraints."
+          <!-- KEY METRICS BAR -->
+          <div class="metrics-bar-grid">
+            <div class="metric-box">
+              <div class="metric-num">14+</div>
+              <div class="metric-lbl">Years Practice</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-num">92+</div>
+              <div class="metric-lbl">Projects Led</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-num">38+</div>
+              <div class="metric-lbl">Storeys Tall</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-num">50+</div>
+              <div class="metric-lbl">Ecosystem Partners</div>
+            </div>
+          </div>
+
+          <!-- PHILOSOPHY QUOTE -->
+          <div class="quote-box">
+            <p>
+              "We do not opt for standardized architecture with pre-conceived notions. Instead, we develop design solutions that integrate form and function, contemplating architecture and landscape best suited to each project striving to produce designs that are relevant, client-centric, and feasible as per environmental and climatological parameters."
             </p>
           </div>
 
-          <div class="profile-text-block">
-            <h3 style="font-size: 1.5rem; margin-bottom: 14px;">Professional Background</h3>
+          <!-- BIO BODY -->
+          <div class="bio-text-block">
+            <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: #12141a;">Professional Vision &amp; Practice</h3>
             <p>
-              Ar. Pravin Eknath Khade is a distinguished Mumbai architect who founded <strong>K Arch Architects</strong> in 2012. With near two decades of domain experience in the high-density real estate and urban development environment of the Mumbai Metropolitan Region (MMR), Ar. Pravin has pioneered transformative design methodologies that harmonize statutory feasibility with landmark architectural distinction.
+              Ar. Pravin Eknath Khade is an acclaimed Mumbai-based architect who established <strong>K Arch Architects</strong> in 2012. With near two decades of domain mastery navigating the intricate urban fabric of the Mumbai Metropolitan Region (MMR), Ar. Pravin has pioneered transformative high-rise and mixed-use architectural methodologies that successfully balance bold aesthetic ambition with stringent municipal compliance.
             </p>
             <p>
-              Under his direction, K Arch Architects has designed and executed over <strong>90+ iconic projects</strong> encompassing soaring residential skyscrapers (30 to 60+ storeys), corporate business parks, integrated master-planned townships, and complex society redevelopment projects under DCPR-2034, MHADA, and SRA regulations.
+              Under his visionary guidance, K Arch Architects has delivered iconic multi-storey residential towers, corporate business parks, and large-scale master-planned townships for premier developers such as N. Rose Developers, Swastik Group, Royal Realtors, and Shreeji Sharan Group.
             </p>
 
-            <h3 style="font-size: 1.5rem; margin-top: 35px; margin-bottom: 14px;">Key Areas of Specialization</h3>
-            <div class="credential-card">
-              <ul style="padding-left: 20px; color: var(--text-secondary); line-height: 1.8;">
-                <li><strong>High-Rise Aerodynamic Design:</strong> Wind vortex mitigation, optimized floor plate efficiency, and shear wall structural coordination for 35+ storey towers.</li>
-                <li><strong>Statutory Municipal Approvals:</strong> Extensive expertise in Mumbai development control regulations, environmental clearances, and civil authority liaisoning.</li>
-                <li><strong>Sustainable Master Planning:</strong> Macro land-use zoning, infrastructure integration, and climatological feasibility for large-scale townships.</li>
-                <li><strong>Society Redevelopment:</strong> FSI optimization, rehabilitation design, and developer profitability models.</li>
-              </ul>
+            <h3 style="font-size: 1.5rem; margin: 35px 0 16px; color: #12141a;">Core Areas of Architectural Mastery</h3>
+            <div class="spec-card-grid">
+              <div class="spec-item">
+                <h4>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="2"></line><line x1="8" y1="6" x2="10" y2="6"></line><line x1="8" y1="10" x2="10" y2="10"></line><line x1="8" y1="14" x2="10" y2="14"></line><line x1="8" y1="18" x2="10" y2="18"></line></svg>
+                  High-Rise Skyscrapers
+                </h4>
+                <p>35 to 60-storey aerodynamic tower design, shear core coordination, seismic load calculations, and wind tunnel optimizations.</p>
+              </div>
+
+              <div class="spec-item">
+                <h4>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  Statutory Approvals &amp; Liaison
+                </h4>
+                <p>Unmatched mastery in DCPR-2034, MHADA, SRA, environmental clearances, and municipal civil authority approvals in Mumbai.</p>
+              </div>
+
+              <div class="spec-item">
+                <h4>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                  Integrated Township Planning
+                </h4>
+                <p>Macro-scale land zoning, multi-tiered vehicular/pedestrian routing, civic infrastructure, and green community amenities.</p>
+              </div>
+
+              <div class="spec-item">
+                <h4>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  Society Redevelopment (FSI)
+                </h4>
+                <p>Advanced FSI and TDR optimization, rehab-sale balance, and stakeholder value creation for residential societies.</p>
+              </div>
             </div>
 
-            <h3 style="font-size: 1.5rem; margin-top: 35px; margin-bottom: 14px;">Key Landmark Projects Led</h3>
-            <p>A selection of prominent architectural towers masterminded under Ar. Pravin's leadership:</p>
-            <div class="landmark-pills">
-              <span class="landmark-pill">🏢 Northern Hills — Dahisar East</span>
-              <span class="landmark-pill">🏢 Royal Lagoon — Malad West</span>
-              <span class="landmark-pill">🏢 Callista Tower — Thane West</span>
-              <span class="landmark-pill">🏢 Shreeji Fiora — Borivali West</span>
-              <span class="landmark-pill">🏢 Yash Sky Height — Goregaon East</span>
-              <span class="landmark-pill">🏢 The Metropole — Ghatkopar West</span>
-              <span class="landmark-pill">🏢 Arham Vihar Township — Rajasthan</span>
-              <span class="landmark-pill">🏢 Dreamax Vega — Andheri</span>
+            <h3 style="font-size: 1.5rem; margin: 35px 0 12px; color: #12141a;">Signature Landmark High-Rises Led</h3>
+            <p>Key architectural marvels designed under Ar. Pravin's leadership:</p>
+
+            <div class="signature-projects-grid">
+              <div class="sig-project-card">
+                <img src="assets/img/showcase/b1.jpg" alt="Northern Hills Dahisar East" onerror="this.src='https://karcharchitects.com/wp-content/uploads/2021/04/b1.jpg'">
+                <div class="sig-project-info">
+                  <div class="sig-project-title">Northern Hills — Dahisar East</div>
+                  <div class="sig-project-meta">Luxury High-Rise Tower &bull; N. Rose Developers</div>
+                </div>
+              </div>
+
+              <div class="sig-project-card">
+                <img src="assets/img/showcase/b2.jpg" alt="Northern Heights Dahisar" onerror="this.src='https://karcharchitects.com/wp-content/uploads/2021/04/b2.jpg'">
+                <div class="sig-project-info">
+                  <div class="sig-project-title">Northern Heights — Dahisar</div>
+                  <div class="sig-project-meta">Iconic Residential Community &bull; Completed</div>
+                </div>
+              </div>
             </div>
 
+            <!-- ACTIONS -->
             <div style="margin-top: 45px; display: flex; gap: 16px; flex-wrap: wrap;">
-              <a href="index.html#contact" class="btn-primary" style="padding: 14px 28px;">
-                <span>Schedule Consultation With Ar. Pravin Khade</span>
+              <a href="index.html#contact" class="btn-primary" style="padding: 14px 30px;">
+                <span>Initiate Project Consultation</span>
               </a>
-              <a href="index.html#portfolio" class="btn-outline" style="padding: 14px 28px;">
-                <span>View Full Architectural Portfolio &rarr;</span>
+              <a href="index.html#portfolio" class="btn-outline" style="padding: 14px 30px;">
+                <span>Browse All 92 Projects &rarr;</span>
               </a>
             </div>
           </div>
-        </div>
+        </article>
+
       </div>
     </div>
   </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container" style="text-align: center; padding-top: 20px;">
-      <p>&copy; 2026 K Arch Architects. All rights reserved. Principal Architect Ar. Pravin Eknath Khade.</p>
+    <div class="container" style="text-align: center; padding: 24px 0;">
+      <p>&copy; 2026 K Arch Architects. All rights reserved. Principal Architect: Ar. Pravin Eknath Khade.</p>
     </div>
   </footer>
 
