@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: karch-architects
+    env: static
+    buildCommand: node build.js
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

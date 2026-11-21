@@ -1,0 +1,18 @@
+{
+  "name": "karch-architects",
+  "version": "2.0.0",
+  "description": "K Arch Architects - Luxury Architecture Studio Website",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build.js",
+    "start": "node -e \"const http = require('http'); const fs = require('fs'); const path = require('path'); const server = http.createServer((req, res) => { let filePath = path.join(__dirname, 'dist', req.url === '/' ? 'index.html' : req.url); if (!fs.existsSync(filePath)) filePath = path.join(__dirname, 'dist', 'index.html'); const ext = path.extname(filePath); const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml' }; res.writeHead(200, { 'Content-Type': types[ext] || 'text/plain' }); fs.createReadStream(filePath).pipe(res); }); server.listen(process.env.PORT || 5500, () => console.log('Server running on port ' + (process.env.PORT || 5500)));\""
+  },
+  "keywords": [
+    "architecture",
+    "karch-architects",
+    "mumbai",
+    "luxury-portfolio"
+  ],
+  "author": "K Arch Architects",
+  "license": "ISC"
+}
