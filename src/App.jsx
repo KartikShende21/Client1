@@ -4,6 +4,8 @@ import {
   ArrowRight, X, Phone, Mail, Clock, CheckCircle2, ChevronDown, 
   ExternalLink, Search, PlusCircle, ArrowUpRight, Award, UserCheck
 } from 'lucide-react';
+import { DEFAULT_PROJECTS } from './data/projectsData.js';
+import { DEFAULT_PARTNERS } from './data/partnersData.js';
 
 export default function App() {
   // Preloader State
@@ -14,50 +16,53 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [consultModalOpen, setConsultModalOpen] = useState(false);
 
-  // Portfolio State
-  const [projects, setProjects] = useState([]);
+  // Helper for absolute image URLs
+  const getImgUrl = (url) => {
+    if (!url) return '/assets/img/showcase/banner1-min-scaled.jpg';
+    if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) return url;
+    return url.startsWith('/') ? url : `/${url}`;
+  };
+
+  // Portfolio State - Default initialized with all 92 verified projects!
+  const [projects, setProjects] = useState(DEFAULT_PROJECTS);
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [visibleCount, setVisibleCount] = useState(9);
 
-  // Partners State
-  const [partnersData, setPartnersData] = useState({});
+  // Partners State - Default initialized with all 52 verified client & partner logos!
+  const [partnersData, setPartnersData] = useState(DEFAULT_PARTNERS);
   const [activePartnerTab, setActivePartnerTab] = useState('clients');
 
   // Hero Slider State
   const [heroSlide, setHeroSlide] = useState(0);
 
-  // Mobile Menu State
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   // Hero Slides
   const heroSlides = [
     {
-      img: 'assets/img/showcase/banner1-min-scaled.jpg',
+      img: '/assets/img/showcase/banner1-min-scaled.jpg',
       tag: 'Iconic Mumbai High-Rise Architecture',
       title: 'Design Your Space With Our Creation',
       desc: 'Pioneering aerodynamic residential skyscrapers, landmark townships, and sustainable urban ecosystems across Mumbai and India.'
     },
     {
-      img: 'assets/img/showcase/b1.jpg',
+      img: '/assets/img/showcase/b1.jpg',
       tag: 'Northern Hills Dahisar East',
       title: 'Elevating Vertical Living Beyond Horizons',
       desc: 'Sculpting high-density urban environments into biophilic, light-filled architectural marvels that endure across generations.'
     },
     {
-      img: 'assets/img/showcase/b2.jpg',
+      img: '/assets/img/showcase/b2.jpg',
       tag: 'Northern Heights Community',
       title: 'Architectural Excellence Rooted in Purpose',
       desc: 'From initial statutory approval liaisoning to post-occupancy handover, delivering precision-engineered structures.'
     }
   ];
 
-  // Fetch Projects & Partners from Node API
+  // Fetch Live Projects & Partners from Node API for real-time updates
   useEffect(() => {
-    // Dismiss preloader after brief delay
-    const timer = setTimeout(() => setLoading(false), 900);
+    const timer = setTimeout(() => setLoading(false), 800);
 
-    // Fetch Projects
+    // Fetch dynamic projects (including any uploaded from /pravinadmin)
     fetch('/api/projects')
       .then(res => res.json())
       .then(data => {
@@ -65,9 +70,9 @@ export default function App() {
           setProjects(data);
         }
       })
-      .catch(err => console.error('Error fetching projects:', err));
+      .catch(err => console.log('Serving bundled projects:', err.message));
 
-    // Fetch Partners
+    // Fetch dynamic partners
     fetch('/api/partners')
       .then(res => res.json())
       .then(data => {
@@ -75,7 +80,7 @@ export default function App() {
           setPartnersData(data);
         }
       })
-      .catch(err => console.error('Error fetching partners:', err));
+      .catch(err => console.log('Serving bundled partners:', err.message));
 
     return () => clearTimeout(timer);
   }, []);
@@ -107,14 +112,16 @@ export default function App() {
     if (activePartnerTab === 'all') {
       const all = [];
       Object.keys(partnersData).forEach(catKey => {
-        partnersData[catKey].items.forEach(item => {
-          all.push({ ...item, badge: partnersData[catKey].badge });
-        });
+        if (partnersData[catKey] && Array.isArray(partnersData[catKey].items)) {
+          partnersData[catKey].items.forEach(item => {
+            all.push({ ...item, badge: partnersData[catKey].badge });
+          });
+        }
       });
       return all;
     }
 
-    if (partnersData[activePartnerTab]) {
+    if (partnersData[activePartnerTab] && Array.isArray(partnersData[activePartnerTab].items)) {
       return partnersData[activePartnerTab].items.map(item => ({
         ...item,
         badge: partnersData[activePartnerTab].badge
@@ -130,7 +137,7 @@ export default function App() {
       {/* 1. SIGNATURE PRELOADER (Photos & Video Ref) */}
       <div className={`preloader-fixed ${!loading ? 'fade' : ''}`}>
         <img 
-          src="assets/img/branding/logo.png" 
+          src={getImgUrl('assets/img/branding/logo.png')} 
           alt="K Arch Architects" 
           style={{ height: '48px', marginBottom: '16px' }}
           onError={(e) => { e.target.src = 'https://karcharchitects.com/wp-content/uploads/2021/04/logo.png'; }}
@@ -161,7 +168,7 @@ export default function App() {
         left: 0,
         width: '100%',
         zIndex: 1000,
-        background: 'rgba(255, 255, 255, 0.95)',
+        background: 'rgba(255, 255, 255, 0.96)',
         backdropFilter: 'blur(16px)',
         borderBottom: '1px solid var(--border-subtle)',
         boxShadow: '0 4px 20px rgba(0,0,0,0.03)'
@@ -175,7 +182,7 @@ export default function App() {
           {/* Logo */}
           <a href="#home" style={{ display: 'flex', alignItems: 'center' }}>
             <img 
-              src="assets/img/branding/logo.png" 
+              src={getImgUrl('assets/img/branding/logo.png')} 
               alt="K Arch Architects" 
               style={{ height: '44px', objectFit: 'contain' }}
               onError={(e) => { e.target.src = 'https://karcharchitects.com/wp-content/uploads/2021/04/logo.png'; }}
@@ -183,7 +190,7 @@ export default function App() {
           </a>
 
           {/* Desktop Menu */}
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '32px' }} className="desktop-nav">
+          <nav style={{ display: 'flex', alignItems: 'center', gap: '30px' }} className="desktop-nav">
             <a href="#home" style={{ fontWeight: 600, fontSize: '0.94rem', color: 'var(--text-primary)' }}>Home</a>
             <a href="#about" style={{ fontWeight: 600, fontSize: '0.94rem', color: 'var(--text-secondary)' }}>About Studio</a>
             <a href="#services" style={{ fontWeight: 600, fontSize: '0.94rem', color: 'var(--text-secondary)' }}>Services</a>
@@ -230,7 +237,7 @@ export default function App() {
             }}
           >
             <img 
-              src={slide.img} 
+              src={getImgUrl(slide.img)} 
               alt={slide.title}
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%' }}
             />
@@ -369,10 +376,10 @@ export default function App() {
             {/* Visual Collage */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
               <div style={{ borderRadius: '12px', overflow: 'hidden', height: '480px', boxShadow: 'var(--shadow-md)' }}>
-                <img src="assets/img/showcase/b1.jpg" alt="Tower High Rise" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src={getImgUrl('assets/img/showcase/b1.jpg')} alt="Tower High Rise" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ borderRadius: '12px', overflow: 'hidden', height: '480px', marginTop: '30px', boxShadow: 'var(--shadow-md)' }}>
-                <img src="assets/img/showcase/b2.jpg" alt="Northern Heights" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src={getImgUrl('assets/img/showcase/b2.jpg')} alt="Northern Heights" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             </div>
           </div>
@@ -391,7 +398,7 @@ export default function App() {
             boxShadow: 'var(--shadow-sm)'
           }}>
             <div style={{ borderRadius: '12px', overflow: 'hidden', background: '#f4f5f8' }}>
-              <img src="assets/img/showcase/philo.png" alt="Architectural Philosophy" style={{ width: '100%', height: 'auto' }} />
+              <img src={getImgUrl('assets/img/showcase/philo.png')} alt="Architectural Philosophy" style={{ width: '100%', height: 'auto' }} />
             </div>
             <div>
               <span className="section-label">Design Philosophy</span>
@@ -557,7 +564,7 @@ export default function App() {
                 </span>
 
                 <img 
-                  src="assets/img/showcase/archpravin-kade1400.jpg" 
+                  src={getImgUrl('assets/img/showcase/archpravin-kade1400.jpg')} 
                   alt="Arch. Pravin Eknath Khade" 
                   style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%' }}
                   onError={(e) => { e.target.src = 'https://karcharchitects.com/wp-content/uploads/2021/04/archpravin-kade1400.jpg'; }}
@@ -664,7 +671,7 @@ export default function App() {
                 </span>
 
                 <img 
-                  src="assets/img/showcase/prajkata.jpg" 
+                  src={getImgUrl('assets/img/showcase/prajkata.jpg')} 
                   alt="Mrs. Prajakta Khade" 
                   style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%' }}
                   onError={(e) => { e.target.src = 'https://karcharchitects.com/wp-content/uploads/2021/04/prajkata.jpg'; }}
@@ -848,10 +855,11 @@ export default function App() {
                   </span>
 
                   <img 
-                    src={project.image || project.originalImage} 
+                    src={getImgUrl(project.image || project.originalImage)} 
                     alt={project.title}
+                    loading="lazy"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
-                    onError={(e) => { e.target.src = 'assets/img/showcase/banner1-min-scaled.jpg'; }}
+                    onError={(e) => { e.target.src = '/assets/img/showcase/banner1-min-scaled.jpg'; }}
                   />
                 </div>
 
@@ -945,13 +953,13 @@ export default function App() {
                 style={{
                   background: '#ffffff',
                   border: '1px solid var(--border-subtle)',
-                  borderRadius: '10px',
+                  borderRadius: '12px',
                   padding: '24px 16px',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  minHeight: '150px',
+                  minHeight: '160px',
                   textAlign: 'center',
                   transition: 'all 0.25s',
                   boxShadow: 'var(--shadow-sm)'
@@ -967,15 +975,18 @@ export default function App() {
                   e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
                 }}
               >
-                <div style={{ height: '70px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px' }}>
+                <div style={{ height: '70px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
                   <img 
-                    src={partner.image} 
+                    src={getImgUrl(partner.image)} 
                     alt={partner.name}
-                    style={{ maxHeight: '60px', maxWidth: '140px', objectFit: 'contain' }}
-                    onError={(e) => { e.target.parentElement.innerHTML = `<span style="font-weight:700; font-size:0.9rem;">${partner.name}</span>`; }}
+                    loading="lazy"
+                    style={{ maxHeight: '60px', maxWidth: '140px', objectFit: 'contain', display: 'block' }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
                   />
                 </div>
-                <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
+                <div style={{ fontSize: '0.84rem', fontWeight: 600, color: 'var(--text-secondary)', lineHeight: 1.4 }}>
                   {partner.name}
                 </div>
               </div>
@@ -1071,7 +1082,7 @@ export default function App() {
       <footer style={{ background: '#0e1014', color: '#adb5bd', padding: '60px 0 30px' }}>
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '30px', marginBottom: '30px' }}>
-            <img src="assets/img/branding/logo-white.png" alt="K Arch Architects" style={{ height: '40px' }} onError={(e) => { e.target.src = 'assets/img/branding/logo.png'; }} />
+            <img src={getImgUrl('assets/img/branding/logo-white.png')} alt="K Arch Architects" style={{ height: '40px' }} onError={(e) => { e.target.src = getImgUrl('assets/img/branding/logo.png'); }} />
             
             <div style={{ display: 'flex', gap: '24px', fontSize: '0.9rem' }}>
               <a href="#about" style={{ color: '#fff' }}>About</a>
@@ -1105,7 +1116,7 @@ export default function App() {
                 <div style={{ background: '#f8f9fc', borderRight: '1px solid var(--border-subtle)', padding: '36px' }}>
                   <div style={{ borderRadius: '10px', overflow: 'hidden', height: '380px', marginBottom: '24px', boxShadow: 'var(--shadow-md)' }}>
                     <img 
-                      src="assets/img/showcase/archpravin-kade1400.jpg" 
+                      src={getImgUrl('assets/img/showcase/archpravin-kade1400.jpg')} 
                       alt="Arch. Pravin Eknath Khade" 
                       style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%' }}
                     />
@@ -1183,7 +1194,7 @@ export default function App() {
                 <div style={{ background: '#f8f9fc', borderRight: '1px solid var(--border-subtle)', padding: '36px' }}>
                   <div style={{ borderRadius: '10px', overflow: 'hidden', height: '380px', marginBottom: '24px', boxShadow: 'var(--shadow-md)' }}>
                     <img 
-                      src="assets/img/showcase/prajkata.jpg" 
+                      src={getImgUrl('assets/img/showcase/prajkata.jpg')} 
                       alt="Mrs. Prajakta Khade" 
                       style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%' }}
                     />
@@ -1269,7 +1280,7 @@ export default function App() {
             <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr' }}>
               <div style={{ background: '#000', overflow: 'hidden' }}>
                 <img 
-                  src={selectedProject.image || selectedProject.originalImage} 
+                  src={getImgUrl(selectedProject.image || selectedProject.originalImage)} 
                   alt={selectedProject.title} 
                   style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                 />
