@@ -1,17 +1,33 @@
 {
   "name": "karch-architects",
-  "version": "2.0.0",
-  "description": "K Arch Architects - Luxury Architecture Studio Website",
-  "main": "index.html",
+  "version": "3.0.0",
+  "description": "K Arch Architects — Fullstack React & Node.js Website + CMS",
+  "main": "server.js",
   "scripts": {
-    "build": "node build.js",
-    "start": "node -e \"const http = require('http'); const fs = require('fs'); const path = require('path'); const server = http.createServer((req, res) => { let filePath = path.join(__dirname, 'dist', req.url === '/' ? 'index.html' : req.url); if (!fs.existsSync(filePath)) filePath = path.join(__dirname, 'dist', 'index.html'); const ext = path.extname(filePath); const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml' }; res.writeHead(200, { 'Content-Type': types[ext] || 'text/plain' }); fs.createReadStream(filePath).pipe(res); }); server.listen(process.env.PORT || 5500, () => console.log('Server running on port ' + (process.env.PORT || 5500)));\""
+    "dev": "vite",
+    "build": "vite build && node -e \"const fs=require('fs'),path=require('path');function c(f,t){if(!fs.existsSync(t))fs.mkdirSync(t,{recursive:true});fs.readdirSync(f).forEach(e=>{const fp=path.join(f,e),tp=path.join(t,e);fs.lstatSync(fp).isDirectory()?c(fp,tp):fs.copyFileSync(fp,tp)})};c('assets/img','dist/assets/img');\"",
+    "start": "node server.js",
+    "server": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "lucide-react": "^1.16.0",
+    "multer": "^1.4.5-lts.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.2.0"
   },
   "keywords": [
     "architecture",
     "karch-architects",
     "mumbai",
-    "luxury-portfolio"
+    "react",
+    "nodejs",
+    "cms"
   ],
   "author": "K Arch Architects",
   "license": "ISC"

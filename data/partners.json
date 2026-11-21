@@ -1,7 +1,4 @@
-/**
- * Categorized Real Estate Clients & Engineering Consultants for K Arch Architects
- */
-const PARTNERS_DATABASE = {
+{
   "clients": {
     "title": "Real Estate Developers & Clients",
     "badge": "Developer",
@@ -258,4 +255,4 @@ const PARTNERS_DATABASE = {
       }
     ]
   }
-};
+}

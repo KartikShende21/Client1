@@ -1,67 +1,68 @@
-# K Arch Architects — Luxury Architecture Studio Website
+# K Arch Architects — Fullstack React & Node.js Website + CMS
 
-A modern, high-performance web experience for **K Arch Architects** ([karcharchitects.com](https://karcharchitects.com/)), designed for high-end real estate developers, structural consultants, and prospective clients.
-
-## 🚀 Key Features
-- **Luxury Day Mode**: Gallery-grade white backdrop, Plus Jakarta Sans & Playfair Display typography, subtle shadow elevations, and architectural bronze accents.
-- **Preloader Animation**: Exact branded preloader featuring the logo, tagline *"DESIGN YOUR SPACE WITH OUR CREATIONS"*, and 5 signature pulsing color dots (Yellow, Orange, Red, Purple, Green).
-- **Streamlined Navigation**: Clean top navbar with Company dropdown (`About Us`, `Philosophy`, `Core Leadership`), `Services`, `Portfolio`, `Clients & Partners`, and `Contact Us`.
-- **Ecosystem Collaborators (52 Logos)**: Interactive categorized sections for Real Estate Developers, Structural Consultants, Approval Authority Architects, MEP Consultants, Environmental Consultants, Landscape Architects, PMC, and Project Sales Marketing Consultants.
-- **Dedicated Executive Profiles**: Standalone detail profile pages for Ar. Pravin Eknath Khade (`team-pravin-khade.html`) and Mrs. Prajakta Khade (`team-prajakta-khade.html`) opening in new tabs.
-- **Filterable Portfolio (92 Projects)**: Real-time search, category filters (Skyscrapers, Residential, Commercial, Township, 3D Interiors), and lightbox modal.
+A bespoke, high-performance web platform and Content Management System built for **K Arch Architects** ([karcharchitects.com](https://karcharchitects.com/)), Mumbai.
 
 ---
 
-## 📁 Project Structure
+## 🚀 Key Highlights & New Architecture
 
-```
-├── dist/                      # Production build for Render deployment
-│   ├── index.html             # Main entry point
-│   ├── team-pravin-khade.html # Ar. Pravin Khade biography & portfolio
-│   ├── team-prajakta-khade.html# Mrs. Prajakta Khade interior portfolio
-│   ├── _redirects             # Static redirects configuration
-│   └── assets/                # CSS, JS, and image assets
-├── assets/                    # Source assets (CSS, JS, images)
-├── index.html                 # Main website template
-├── team-pravin-khade.html     # Ar. Pravin Khade biography
-├── team-prajakta-khade.html   # Mrs. Prajakta Khade interior profile
-├── package.json               # Build scripts & metadata
-├── render.yaml                # Render Blueprint deployment configuration
-└── build.js                   # Automated build & dist generator
-```
+### 1. Fullstack React + Node.js Architecture
+- **Frontend**: Modern **React 18 + Vite** with high-end editorial architectural typography (*Playfair Display*, *Plus Jakarta Sans*, *JetBrains Mono*).
+- **Backend API**: **Node.js + Express** with file streaming, JSON persistence, and dynamic asset serving.
+- **Port**: Serves on `http://localhost:5500` (or `process.env.PORT`).
 
----
+### 2. Team In-Page Modal (No Separate Window / No New Tab)
+- Clicking on either leadership card (**Ar. Pravin Eknath Khade** or **Mrs. Prajakta Khade**) opens their full executive biography, credentials, philosophy, and landmark projects **right on the same page** in an interactive luxury modal with backdrop blur.
 
-## 🌐 Deploy to Render (Static Site)
+### 3. Executive CMS Portal: `/pravinadmin` (Zero Login Required!)
+- Direct access at: `http://localhost:5500/pravinadmin` (or `https://your-app.onrender.com/pravinadmin`).
+- No password or login wall required — direct and frictionless for the client.
+- **Upload New Projects**:
+  - Drag & drop or select photos directly from phone/laptop.
+  - Set Title, Category (*Skyscrapers, Residential, Commercial, Township, Luxury Interiors*), Location, Status, and Typology.
+  - One-click **"Publish Project to Website"**.
+  - Newly uploaded projects immediately appear live on the homepage with a **`✨ New Upload`** badge!
+- **Manage Existing Projects**:
+  - Search and delete projects with instant live synchronization.
 
-### Option 1: Automatic Blueprint (Recommended)
-1. Go to [dashboard.render.com](https://dashboard.render.com/).
-2. Click **New +** -> **Blueprint**.
-3. Connect your GitHub repository: `KartikShende21/Client1`.
-4. Render will automatically detect `render.yaml` and configure everything.
-5. Click **Apply**. Your website will be live in ~1 minute!
+### 4. Dynamic Live Portfolio (92+ Landmarks)
+- Real-time search by location or project name.
+- Category filters (*Skyscrapers & High-Rise, Residential Towers, Commercial Complex, Township Planning, Luxury Interiors, 3D Architecture*).
+- Interactive project lightbox with high-resolution imagery and inquiry call-to-actions.
 
-### Option 2: Manual Static Site Setup
-1. Go to [dashboard.render.com](https://dashboard.render.com/).
-2. Click **New +** -> **Static Site**.
-3. Select your repository: `KartikShende21/Client1`.
-4. Configure settings:
-   - **Name**: `karch-architects`
-   - **Branch**: `main`
-   - **Build Command**: `node build.js` (or leave empty)
-   - **Publish Directory**: `dist`
-5. Click **Create Static Site**.
+### 5. Categorized Ecosystem & Work Partners (52+ Logos)
+- Real Estate Developers, Structural Consultants, Approval Authority Architects, MEP Liaisons, Environmental Consultants, Landscape Architects, PMC, and Sales Marketing Consultants.
 
 ---
 
-## 💻 Local Development
+## 🛠️ Local Development & Running
+
 ```bash
-# Build the dist directory
+# 1. Install dependencies
+npm install
+
+# 2. Build React production bundle
 npm run build
 
-# Start local server
-python -m http.server 5500
-# or
+# 3. Start the Fullstack Server
 npm start
 ```
-Open [http://localhost:5500/](http://localhost:5500/) in your browser.
+
+- **Main Website**: [http://localhost:5500/](http://localhost:5500/)
+- **Admin CMS Dashboard**: [http://localhost:5500/pravinadmin](http://localhost:5500/pravinadmin)
+
+---
+
+## 🌐 Deploy to Render
+
+### As a Web Service (Full Node + React Backend)
+1. Go to [dashboard.render.com](https://dashboard.render.com/).
+2. Click **New +** -> **Web Service**.
+3. Select your repository: `KartikShende21/Client1`.
+4. Configure settings:
+   - **Environment**: `Node`
+   - **Build Command**: `npm install && npm run build`
+   - **Start Command**: `npm start`
+5. Click **Create Web Service**.
+
+Both the main React website and the `/pravinadmin` upload dashboard will be live!

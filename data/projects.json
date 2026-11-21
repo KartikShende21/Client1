@@ -1,4 +1,4 @@
-const PORTFOLIO_PROJECTS = [
+[
   {
     "id": 1,
     "title": "Northern Hills",
@@ -1287,4 +1287,4 @@ const PORTFOLIO_PROJECTS = [
     "year": "2020 - 2024",
     "status": "Completed"
   }
-];
+]
